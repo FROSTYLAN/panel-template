@@ -19,6 +19,11 @@ const AppEchart = Loadable(lazy(() => import("app/views/charts/echarts/AppEchart
 // DASHBOARD PAGE
 const Analytics = Loadable(lazy(() => import("app/views/dashboard/Analytics")));
 
+// Importaciones nuevas
+const Categories = Loadable(lazy(() => import("app/views/mod/Categories")));
+const Machines = Loadable(lazy(() => import("app/views/mod/Machines")));
+const Inventory = Loadable(lazy(() => import("app/views/mod/Inventory")));
+
 const routes = [
   {
     element: (
@@ -31,7 +36,11 @@ const routes = [
       // dashboard route
       { path: "/dashboard/default", element: <Analytics />, auth: authRoles.admin },
       // e-chart route
-      { path: "/charts/echarts", element: <AppEchart />, auth: authRoles.editor }
+      { path: "/charts/echarts", element: <AppEchart />, auth: authRoles.editor },
+      // Rutas nuevas
+      { path: "/categories", element: <Categories />, auth: authRoles.admin },
+      { path: "/machines", element: <Machines />, auth: authRoles.admin },
+      { path: "/inventory", element: <Inventory />, auth: authRoles.admin }
     ]
   },
 
